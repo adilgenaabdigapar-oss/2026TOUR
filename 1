@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адиль Абдигапар — Сольный Стендап Концерт</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Unbounded & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        posterBg: '#A5D6D6',
+                        posterBgDark: '#88C4C4',
+                        posterRed: '#D60000',
+                        posterRedDark: '#AC0000',
+                        posterYellow: '#E1E99F',
+                        posterTextDark: '#121212',
+                    },
+                    fontFamily: {
+                        unbounded: ['Unbounded', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #A5D6D6;
+            color: #121212;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Poster Bold Titles */
+        .poster-title {
+            font-family: 'Unbounded', sans-serif;
+            color: #D60000;
+            text-transform: uppercase;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+        }
+
+        .poster-subtitle {
+            font-family: 'Inter', sans-serif;
+            color: #121212;
+            font-weight: 800;
+            text-transform: lowercase;
+            letter-spacing: -0.01em;
+        }
+
+        /* Watermark Background Stroke Effect */
+        .bg-watermark {
+            position: absolute;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            color: rgba(225, 233, 159, 0.45);
+            font-size: clamp(7rem, 22vw, 22rem);
+            line-height: 0.8;
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+            transform: rotate(-10deg);
+            white-space: nowrap;
+        }
+
+        /* Interactive Ticket Cards */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.18), 0 12px 12px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-ticket {
+            background-color: #D60000;
+            color: #FFFFFF;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(214, 0, 0, 0.35);
+        }
+        .btn-ticket:hover {
+            background-color: #AC0000;
+            box-shadow: 0 6px 20px rgba(214, 0, 0, 0.55);
+            transform: translateY(-2px);
+        }
+
+        .poster-frame {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex flex-col justify-between antialiased selection:bg-posterRed selection:text-white">
+
+    <div class="bg-watermark top-10 -left-16">STANDUP</div>
+    <div class="bg-watermark bottom-24 -right-16">TOUR</div>
+
+    <!-- Header Navigation -->
+    <header class="relative z-10 w-full max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <span class="bg-posterRed text-white font-black px-3.5 py-1 text-sm tracking-wider uppercase rounded-md transform -rotate-2 inline-block shadow-md">
+                STAND UP TOUR 2024
+            </span>
+        </div>
+        <a href="#schedule" class="text-xs sm:text-sm font-bold bg-white/80 hover:bg-white text-posterRed px-5 py-2.5 rounded-full transition-all border border-posterRed/20 backdrop-blur-md shadow-sm">
+            Все города ↓
+        </a>
+    </header>
+
+    <section class="relative z-10 max-w-6xl mx-auto px-4 pt-2 pb-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+        
+        <!-- Left Hero Content -->
+        <div class="flex-1 text-center md:text-left">
+            <div class="inline-block bg-posterYellow text-posterTextDark font-extrabold px-4 py-1.5 rounded-full text-sm sm:text-base mb-4 shadow-sm border border-black/10 transform rotate-1">
+                🔥 Сольный стендап тур по городам
+            </div>
+            
+            <p class="poster-subtitle text-2xl sm:text-3xl md:text-4xl mb-1">
+                сольный стендап концерт
+            </p>
+            
+            <h1 class="poster-title text-4xl sm:text-6xl lg:text-7xl mb-6 tracking-tight">
+                АДИЛЬ<br>АБДИГАПАР
+            </h1>
+
+            <p class="text-gray-900 text-base sm:text-lg max-w-lg mb-8 font-semibold leading-relaxed">
+                Живой стендап, новые шутки и непередаваемая атмосфера. Выбирай свой город и успей забронировать лучшие места!
+            </p>
+
+            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a href="#schedule" class="btn-ticket px-8 py-4 rounded-2xl text-lg font-bold flex items-center gap-3">
+                    <i class="fa-solid fa-ticket font-bold"></i>
+                    Выбрать город и купить билет
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Hero Poster Image -->
+        <div class="flex-1 w-full max-w-md relative flex justify-center items-center">
+            <div class="relative w-full rounded-3xl overflow-hidden poster-frame border-4 border-white/60 bg-white/20 backdrop-blur-sm p-2">
+                <!-- Main Poster Image from uploaded story asset -->
+                <img 
+                    src="тур story.jpg" 
+                    alt="Адиль Абдигапар - Сольный стендап концерт" 
+                    class="w-full h-auto object-cover rounded-2xl shadow-inner"
+                    onerror="this.onerror=null; this.src='Астана inst.jpg';"
+                />
+            </div>
+        </div>
+
+    </section>
+
+    <main id="schedule" class="relative z-10 max-w-6xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <span class="bg-posterYellow text-posterTextDark text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-2 inline-block border border-black/10">
+                Афиша и Билеты
+            </span>
+            <h2 class="poster-title text-3xl sm:text-5xl mt-1 mb-3">Расписание Концертов</h2>
+            <p class="text-gray-900 font-semibold text-base sm:text-lg">Информационная карточка по каждому городу</p>
+        </div>
+
+        <!-- Schedule Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+            <!-- 1. Бишкек -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-xl border border-white/80 flex flex-col justify-between card-hover relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-posterYellow text-posterTextDark text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider border-b border-l border-black/10">
+                    6 Ноября
+                </div>
+
+                <div>
+                    <!-- Город -->
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Город</span>
+                        <h3 class="poster-title text-3xl text-posterRed">Бишкек</h3>
+                    </div>
+
+                    <!-- Дата -->
+                    <div class="mb-3 bg-posterBg/30 p-3 rounded-2xl border border-posterBg/50 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Дата</span>
+                            <span class="font-extrabold text-gray-900 text-base">6 ноября</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Время</span>
+                            <span class="font-extrabold text-gray-900 text-base">20:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Место -->
+                    <div class="mb-6">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Место</span>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-posterRed mt-1 text-base"></i>
+                            <div>
+                                <p class="font-extrabold text-gray-900 leading-snug">SOLD OUT stand up&event bar</p>
+                                <p class="text-xs font-medium text-gray-600 mt-0.5">Байтик баатыра 32а</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Билеты (Ссылка) -->
+                <div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1.5">Билеты</span>
+                    <a href="https://ticket.kg/event/adil-abdigapar" target="_blank" rel="noopener noreferrer" class="btn-ticket w-full py-3.5 px-4 rounded-xl font-extrabold flex items-center justify-center gap-2 text-center">
+                        <span>Купить билет</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Ташкент -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-xl border border-white/80 flex flex-col justify-between card-hover relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-posterYellow text-posterTextDark text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider border-b border-l border-black/10">
+                    7 Ноября
+                </div>
+
+                <div>
+                    <!-- Город -->
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Город</span>
+                        <h3 class="poster-title text-3xl text-posterRed">Ташкент</h3>
+                    </div>
+
+                    <!-- Дата -->
+                    <div class="mb-3 bg-posterBg/30 p-3 rounded-2xl border border-posterBg/50 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Дата</span>
+                            <span class="font-extrabold text-gray-900 text-base">7 ноября</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Время</span>
+                            <span class="font-extrabold text-gray-900 text-base">20:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Место -->
+                    <div class="mb-6">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Место</span>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-posterRed mt-1 text-base"></i>
+                            <div>
+                                <p class="font-extrabold text-gray-900 leading-snug">SAHNA stand up club</p>
+                                <p class="text-xs font-medium text-gray-600 mt-0.5">Matbuotchilar 17</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Билеты (Ссылка) -->
+                <div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1.5">Билеты</span>
+                    <a href="https://t.me/sahnastandup_bot?profile" target="_blank" rel="noopener noreferrer" class="btn-ticket w-full py-3.5 px-4 rounded-xl font-extrabold flex items-center justify-center gap-2 text-center">
+                        <i class="fa-brands fa-telegram text-base"></i>
+                        <span>Купить билет</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Шымкент -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-xl border border-white/80 flex flex-col justify-between card-hover relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-posterYellow text-posterTextDark text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider border-b border-l border-black/10">
+                    8 Ноября
+                </div>
+
+                <div>
+                    <!-- Город -->
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Город</span>
+                        <h3 class="poster-title text-3xl text-posterRed">Шымкент</h3>
+                    </div>
+
+                    <!-- Дата -->
+                    <div class="mb-3 bg-posterBg/30 p-3 rounded-2xl border border-posterBg/50 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Дата</span>
+                            <span class="font-extrabold text-gray-900 text-base">8 ноября</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Время</span>
+                            <span class="font-extrabold text-gray-900 text-base">20:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Место -->
+                    <div class="mb-6">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Место</span>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-posterRed mt-1 text-base"></i>
+                            <div>
+                                <p class="font-extrabold text-gray-900 leading-snug">KOO-KOO BAR</p>
+                                <p class="text-xs font-medium text-gray-600 mt-0.5">Ташенова 16</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Билеты (Ссылка) -->
+                <div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1.5">Билеты</span>
+                    <a href="https://sxodim.com/shymkent/event/solnyy-stendap-koncert-adilya-abdigapara" target="_blank" rel="noopener noreferrer" class="btn-ticket w-full py-3.5 px-4 rounded-xl font-extrabold flex items-center justify-center gap-2 text-center">
+                        <span>Купить билет</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Астана -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-xl border border-white/80 flex flex-col justify-between card-hover relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-posterYellow text-posterTextDark text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider border-b border-l border-black/10">
+                    13 Ноября
+                </div>
+
+                <div>
+                    <!-- Город -->
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Город</span>
+                        <h3 class="poster-title text-3xl text-posterRed">Астана</h3>
+                    </div>
+
+                    <!-- Дата -->
+                    <div class="mb-3 bg-posterBg/30 p-3 rounded-2xl border border-posterBg/50 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Дата</span>
+                            <span class="font-extrabold text-gray-900 text-base">13 ноября</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Время</span>
+                            <span class="font-extrabold text-gray-900 text-base">21:45</span>
+                        </div>
+                    </div>
+
+                    <!-- Место -->
+                    <div class="mb-6">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Место</span>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-posterRed mt-1 text-base"></i>
+                            <div>
+                                <p class="font-extrabold text-gray-900 leading-snug">Carlin Stand Up Bar</p>
+                                <p class="text-xs font-medium text-gray-600 mt-0.5">Гейдара Алиева 1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Билеты (Ссылка) -->
+                <div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1.5">Билеты</span>
+                    <a href="https://ticketon.kz/stand-up/event/tckt2-solnyy-stand-up-kontsert-adilya-abdigapara" target="_blank" rel="noopener noreferrer" class="btn-ticket w-full py-3.5 px-4 rounded-xl font-extrabold flex items-center justify-center gap-2 text-center">
+                        <span>Купить билет</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Караганда -->
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 shadow-xl border border-white/80 flex flex-col justify-between card-hover relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-posterYellow text-posterTextDark text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider border-b border-l border-black/10">
+                    15 Ноября
+                </div>
+
+                <div>
+                    <!-- Город -->
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-0.5">Город</span>
+                        <h3 class="poster-title text-3xl text-posterRed">Караганда</h3>
+                    </div>
+
+                    <!-- Дата -->
+                    <div class="mb-3 bg-posterBg/30 p-3 rounded-2xl border border-posterBg/50 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Дата</span>
+                            <span class="font-extrabold text-gray-900 text-base">15 ноября</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-gray-500 uppercase block">Время</span>
+                            <span class="font-extrabold text-gray-900 text-base">20:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Место -->
+                    <div class="mb-6">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Место</span>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-posterRed mt-1 text-base"></i>
+                            <div>
+                                <p class="font-extrabold text-gray-900 leading-snug">Fragment pub</p>
+                                <p class="text-xs font-medium text-gray-600 mt-0.5">Университетская улица ст-е 28/11</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Билеты (Ссылка) -->
+                <div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1.5">Билеты</span>
+                    <a href="https://sxodim.com/karaganda/event/solnyy-stendap-koncert-adilya-abdigapara" target="_blank" rel="noopener noreferrer" class="btn-ticket w-full py-3.5 px-4 rounded-xl font-extrabold flex items-center justify-center gap-2 text-center">
+                        <span>Купить билет</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
